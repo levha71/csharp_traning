@@ -17,17 +17,17 @@ namespace WebAddressbookTests
     [Test]
     public void GroupGreationTest()
         {
-            GoToHomePage(); //Открытие главной страницы
-            Login(new AccountData("admin", "secret")); //Login Заполнение логина и пароля
-            GoToGroupsPage(); //Перход на станицу со списком групп
-            InitGroupGreation();//Создание новой группы
+            navigator.GoToHomePage(); //Открытие главной страницы
+            loginHelper.Login(new AccountData("admin", "secret")); //Login Заполнение логина и пароля
+            navigator.GoToGroupsPage(); //Перход на станицу со списком групп
+            groupHelper.InitGroupGreation();//Создание новой группы
             GroupData group = new GroupData("aaa"); //Заполнение данными формы
             group.Header = "ddd";
             group.Footer = "fff";
-            FillGroupForm(group);//Заполнение данными формы
-            SubmitGroupCreaton();//Подтверждение
-            ReturnToGroupsPage();//Возвращаемся на страницу групп
-            ReturnHomePage();//Разлогиниваемся
+            groupHelper.FillGroupForm(group);//Заполнение данными формы
+            groupHelper.SubmitGroupCreaton();//Подтверждение
+            groupHelper.ReturnToGroupsPage();//Возвращаемся на страницу групп
+            loginHelper.ReturnHomePage();//Разлогиниваемся
         }
 
         

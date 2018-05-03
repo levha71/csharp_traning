@@ -17,13 +17,13 @@ namespace WebAddressbookTests
         [Test]
         public void GroupRemovalTest()
         {
-            GoToHomePage(); //Открытие главной страницы
-            Login(new AccountData("admin","secret"));//Login Заполнение логина и пароля
-            GoToGroupsPage();//Перход на станицу со списком групп
-            SelectGroup(1);//Выделяем удаляемую группу
-            RemoveGroup();//Удаляем группу
-            ReturnToGroupsPage();//Возвращаемся на страницу групп
-            ReturnHomePage();//Разлогиниваемся
+            navigator.GoToHomePage(); //Открытие главной страницы
+            loginHelper.Login(new AccountData("admin","secret"));//Login Заполнение логина и пароля
+            navigator.GoToGroupsPage();//Перход на станицу со списком групп
+            groupHelper.SelectGroup(1);//Выделяем удаляемую группу
+            groupHelper.RemoveGroup();//Удаляем группу
+            groupHelper.ReturnToGroupsPage();//Возвращаемся на страницу групп
+            loginHelper.ReturnHomePage();//Разлогиниваемся
         }       
     }
 }
