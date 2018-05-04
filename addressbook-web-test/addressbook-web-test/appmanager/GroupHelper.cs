@@ -64,5 +64,5 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.Name("delete")).Click();
         }
-    }
+    }//
 }
