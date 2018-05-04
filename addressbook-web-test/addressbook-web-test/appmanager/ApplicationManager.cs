@@ -13,9 +13,7 @@ namespace WebAddressbookTests
     {
         protected IWebDriver driver;
         private StringBuilder verificationErrors;
-
-        //private StringBuilder verificationErrors;
-        protected bool acceptNextAlert = true;
+        protected string baseURL;
 
         protected LoginHelper loginHelper;
         protected NavigationHelper navigator;
@@ -24,7 +22,7 @@ namespace WebAddressbookTests
         public ApplicationManager()
         {
             loginHelper = new LoginHelper(driver);
-            navigator = new NavigationHelper(driver);
+            navigator = new NavigationHelper(driver);//baseURL
             groupHelper = new GroupHelper(driver);
 
             FirefoxOptions options = new FirefoxOptions();
