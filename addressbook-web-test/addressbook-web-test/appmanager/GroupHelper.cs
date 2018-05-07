@@ -29,7 +29,7 @@ namespace WebAddressbookTests
 
         public void FillGroupForm(GroupData group)
         {
-            //Заполнение данными форму
+            ////Заполнение данными форму
             //By locator = By.Name("group_name");
             //string text = group.Name;
             Type(By.Name("group_name"), group.Name);
