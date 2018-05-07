@@ -74,6 +74,7 @@
     <Compile Include="dop\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tests\GroupGreationTests.cs" />
+    <Compile Include="tests\TestSuiteFixture.cs" />
     <Compile Include="tests\UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>

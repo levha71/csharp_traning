@@ -25,7 +25,11 @@ namespace WebAddressbookTests
         [SetUp]
         public void SetupTest()
         {
-            app = new ApplicationManager();
+            app = TestSuiteFixture.app;
+            //app = new ApplicationManager();
+            
+          //  app.Auth.Login(new AccountData("admin", "secret"));
+
          //   FirefoxOptions options = new FirefoxOptions();
          //   options.UseLegacyImplementation = true;
          //   options.BrowserExecutableLocation = @"C:\Program Files\Mozilla Firefox\firefox.exe";
@@ -41,7 +45,7 @@ namespace WebAddressbookTests
         [TearDown]
         public void TeardownTest()
         {
-            app.Stop();
+           // app.Stop();
             //try
             //{
             //    driver.Quit();

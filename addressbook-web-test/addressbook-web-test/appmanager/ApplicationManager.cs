@@ -18,6 +18,7 @@ namespace WebAddressbookTests
         protected LoginHelper loginHelper;
         protected NavigationHelper navigator;
         protected GroupHelper groupHelper;
+        private static ApplicationManager instance;
 
         public ApplicationManager()
         {
@@ -36,6 +37,15 @@ namespace WebAddressbookTests
             navigator = new NavigationHelper(driver);
             groupHelper = new GroupHelper(driver);
         }
+
+        //public static ApplicationManager GetInstance()
+        //{
+        //    if(instance == null)
+        //    {
+        //        instance = new ApplicationManager();
+        //    }
+        //    return instance;
+        //}
 
         public void Stop()
         {
