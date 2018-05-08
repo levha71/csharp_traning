@@ -15,7 +15,7 @@ namespace WebAddressbookTests
 
         public GroupHelper(IWebDriver driver) : base(driver)
         {
-
+                
         }
 
 
@@ -44,6 +44,8 @@ namespace WebAddressbookTests
             //driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
         }
 
+        
+
         //public void Type(By locator, string text)
         //{   
         //    if(text != null)
@@ -52,8 +54,8 @@ namespace WebAddressbookTests
         //        driver.FindElement(locator).Clear();
         //        driver.FindElement(locator).SendKeys(text);
         //    }
-            
-            
+
+
         //}
 
         public void SubmitGroupCreaton()
@@ -78,7 +80,7 @@ namespace WebAddressbookTests
 
         public void SelectGroup(int index)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (index + 1) + "]")).Click();
         }
 
         public void RemoveGroup()
@@ -90,5 +92,29 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.Name("edit")).Click();
         }
-    }//
+
+        public  List<GroupData> GetGroupList()
+        {
+            List<GroupData> groups = new List<GroupData>();//Создание пустого списка
+            GoToGroupsPage();//Перход на станицу со списком групп
+            ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));//Получение списка элементов
+            foreach(IWebElement element in elements)
+            {
+                GroupData group = new GroupData(element.Text);//Создание переменной
+                groups.Add(group);
+            }
+            return groups;
+        }
+
+        public void GoToGroupsPage()
+        {
+            if (driver.Url == "http://localhost/addressbook/group.php"
+                && IsElementPresent(By.Name("new")))
+            {
+                return;
+            }
+            //Перход на станицу со списком групп
+            driver.FindElement(By.LinkText("groups")).Click();
+        }
+    }
 }

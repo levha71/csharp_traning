@@ -20,7 +20,7 @@ namespace WebAddressbookTests
         //protected NavigationHelper navigator;
         //protected GroupHelper groupHelper;
 
-        protected ApplicationManager app;
+        public ApplicationManager app;
 
         [SetUp]
         public void SetupTest()
