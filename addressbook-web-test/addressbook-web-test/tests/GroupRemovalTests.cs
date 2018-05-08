@@ -34,6 +34,10 @@ namespace WebAddressbookTests
             oldGroups.RemoveAt(0); // Удаляем первый элемент в списке
             Assert.AreEqual(oldGroups, newGroups);// Сравниваем не размеры а сами списки
 
+            foreach(GroupData group in newGroups)
+            {
+                Assert.AreNotEqual(group.Id, oldGroups[0]);
+            }
 
             app.Auth.ReturnHomePage();//Разлогиниваемся
         }

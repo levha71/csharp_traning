@@ -100,8 +100,13 @@ namespace WebAddressbookTests
             ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));//Получение списка элементов
             foreach(IWebElement element in elements)
             {
-                GroupData group = new GroupData(element.Text);//Создание переменной
-                groups.Add(group);
+                //GroupData group = new GroupData(element.Text);//Создание переменной
+                //groups.Add(new GroupData(element.Text));
+
+                
+                groups.Add(new GroupData(element.Text) {
+                    Id = element.FindElement(By.TagName("input")).GetAttribute("value")
+            });
             }
             return groups;
         }
