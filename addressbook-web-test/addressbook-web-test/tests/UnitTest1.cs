@@ -12,13 +12,7 @@ namespace addressbook_web_test.tests
         [TestMethod]
         public void TestMethod1()
         {
-            IWebDriver driver = null;
-            int attemp = 0;
-
-            while (driver.FindElements(By.Id("test")).Count == 0 && attemp < 60) {
-                System.Threading.Thread.Sleep(1000);
-                attemp++;
-            }
+            
             // ....
         }
     }

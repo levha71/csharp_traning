@@ -17,6 +17,9 @@ namespace WebAddressbookTests
             app.Navigator.GoToHomePage(); //Открытие главной страницы
             app.Auth.Login(new AccountData("admin", "secret"));//Login Заполнение логина и пароля
             app.Navigator.GoToGroupsPage();//Перход на станицу со списком групп
+
+            List<GroupData> oldGroups = app.Groups.GetGroupList(); //Получение спика групп до создания новой группы
+
             app.Groups.SelectGroup(0);//Выделяем мщдифицируемую группу (в икспас запросе добавленна еденица)
             app.Groups.ModificationGroup();//переход на выделеную группу
             GroupData group = new GroupData("bbb"); //Заполнение данными формы
@@ -26,6 +29,16 @@ namespace WebAddressbookTests
 
             app.Groups.UpdateGroupCreaton();//Подтверждение
             app.Groups.ReturnToGroupsPage();//Возвращаемся на страницу групп
+
+            List<GroupData> newGroups = app.Groups.GetGroupList();   //Получение спика групп после создания новой группы(GetGroupList Метод возвращающий список групп)
+                                                                     //groups.Count; //Количество элементов в списке
+            Assert.AreEqual(oldGroups.Count, newGroups.Count);  //Проверка что списки до создания нового и после создания равны
+            //==================================
+            oldGroups[0].Name = group.Name;
+            oldGroups.Sort();
+            newGroups.Sort();
+            Assert.AreEqual(oldGroups, newGroups);
+
             app.Auth.ReturnHomePage();//Разлогиниваемся
         }
     }

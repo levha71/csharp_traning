@@ -36,6 +36,11 @@ namespace WebAddressbookTests
             List<GroupData> newGroups = app.Groups.GetGroupList();   //Получение спика групп после создания новой группы(GetGroupList Метод возвращающий список групп)
                                                                      //groups.Count; //Количество элементов в списке
             Assert.AreEqual(oldGroups.Count + 1, newGroups.Count);  //Проверка что списки до создания нового и после создания имеют разницу в 1
+            //==================================
+            oldGroups.Add(group);
+            oldGroups.Sort();
+            newGroups.Sort();
+            Assert.AreEqual(oldGroups, newGroups);
 
 
             app.Auth.ReturnHomePage();//Разлогиниваемся
